@@ -887,7 +887,7 @@ function CommDKP:InitializeCommDKPDB(dbTable)
 	
 	if not dbTable.DKPBonus or not dbTable.DKPBonus.OnTimeBonus then
 		dbTable.DKPBonus = {
-			OnTimeBonus = 15, BossKillBonus = 5, CompletionBonus = 10, NewBossKillBonus = 10, UnexcusedAbsence = -25, BidTimer = 30, DecayPercentage = 20, GiveRaidStart = false, IncStandby = false,
+			OnTimeBonus = 15, BossKillBonus = 5, CompletionBonus = 10, NewBossKillBonus = 10, UnexcusedAbsence = -25, MinDKP = 100, BidTimer = 30, DecayPercentage = 20, GiveRaidStart = false, IncStandby = false,
 		}
 	end
 

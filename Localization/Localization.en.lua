@@ -372,6 +372,7 @@ core.L = {
   MINBIDTTWARN = "Defaults can be set in Options tab.",
   MINBIDVALUESHEAD = "Minimum Bid Values",
   MINBIDVALUESSENT = "Minimum Bid Values Sent",
+  MINDKP = "Minimum DKP",
   MINIMUMBID = "Minimum Bid",
   MINIMUMROLL = "Minimum Roll",
   MINIMUMROLLTTDESC = "Set the minimum roll to be used.",

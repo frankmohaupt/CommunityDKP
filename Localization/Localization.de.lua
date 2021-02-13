@@ -443,6 +443,7 @@ if GetLocale() == "deDE" then
     MINBIDTTWARN = "Die Standardeinstellungen können auf der Registerkarte Optionen festgelegt werden.",
     MINBIDVALUESHEAD = "Mindestgebotswerte",
     MINBIDVALUESSENT = "Mindestgebot gesendet",
+    MINDKP = "Mindest-DKP",
     MINIMUMBID = "Mindestgebot",
     MINIMUMROLL = "Minimum Roll",
     MINIMUMROLLTTDESC = "Stellen Sie den zu verwendenden Mindestwurfwert ein.",

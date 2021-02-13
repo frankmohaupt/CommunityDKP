@@ -537,6 +537,7 @@ core.L = {
   SENDWHITELIST = "Send Whitelist",
   SENDWHITELISTTTDESC = "Broadcasts your whitelist to all officers.",
   SENDWHITELISTTTWARN = "Recommended you do this when all officers are online. If an officer does not receive this whitelist, they will have full officer permissions. They will not, however, be able to broadcast their information to other officers. You will be notified if they attempt to. If you receive that notification, Send the whitelist and their permissions will be removed.",
+  SETMINIMUMDKP = "Set minimum DKP",
   SETWHITELIST = "Set Whitelist",
   SETWHITELISTTTDESC1 = "Adds selected officers from the DKP table to the whitelist. Whitelist is used to |cffff0000limit|r the officers that have permissions to modify DKP values.",
   SETWHITELISTTTDESC2 = "Using this option with no players selected will clear your whitelist.",

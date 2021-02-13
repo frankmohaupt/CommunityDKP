@@ -636,6 +636,7 @@ if GetLocale() == "deDE" then
     SENDWHITELIST = "Whitelist senden",
     SENDWHITELISTTTDESC = "Überträgt Ihre Whitelist an alle leitenden Angestellten.",
     SENDWHITELISTTTWARN = "Es wird empfohlen, dies zu tun, wenn alle Offiziere online sind. Wenn ein Offizier diese Whitelist nicht erhält, hat er die vollen Offiziersrechte. Sie können ihre Informationen jedoch nicht an andere Offiziere weitergeben. Sie werden benachrichtigt, wenn sie es versuchen. Wenn Sie diese Benachrichtigung erhalten, senden Sie die Whitelist und ihre Berechtigungen werden entfernt.",
+    SETMINIMUMDKP = "Minimale DKP setzen",
     SETWHITELIST = "Whitelist setzen",
     SETWHITELISTTTDESC1 = "Fügt ausgewählte Offiziere aus der DKP-Tabelle zur Whitelist hinzu. Whitelist wird verwendet, um | cffff0000limit | r die Offiziere zu erstellen, die Berechtigungen zum Ändern von DKP-Werten haben.",
     SETWHITELISTTTDESC2 = "Wenn Sie diese Option ohne ausgewählte Spieler verwenden, wird Ihre Whitelist gelöscht.",

@@ -977,6 +977,23 @@ function CommDKP:AdjustDKPTab_Create()
 		CommDKP.ConfigTab2.RaidTimerContainer.EndRaidBonus:SetScript("OnLeave", function(self)
 			GameTooltip:Hide()
 		end)
+  
+    -- Set minimum DKP
+		CommDKP.ConfigTab2.RaidTimerContainer.SetMinimumDKP = CreateFrame("CheckButton", nil, CommDKP.ConfigTab2.RaidTimerContainer, "UICheckButtonTemplate");
+		CommDKP.ConfigTab2.RaidTimerContainer.SetMinimumDKP:SetChecked(core.DB.DKPBonus.SetMinimumDKP)
+		CommDKP.ConfigTab2.RaidTimerContainer.SetMinimumDKP:SetScale(0.6);
+		CommDKP.ConfigTab2.RaidTimerContainer.SetMinimumDKP.text:SetText("  |cff5151de"..L["SETMINIMUMDKP"].."|r");
+		CommDKP.ConfigTab2.RaidTimerContainer.SetMinimumDKP.text:SetScale(1.5);
+		CommDKP.ConfigTab2.RaidTimerContainer.SetMinimumDKP.text:SetFontObject("CommDKPSmallLeft")
+		CommDKP.ConfigTab2.RaidTimerContainer.SetMinimumDKP:SetPoint("TOP", CommDKP.ConfigTab2.RaidTimerContainer.EndRaidBonus, "BOTTOM", 0, 2);
+		CommDKP.ConfigTab2.RaidTimerContainer.SetMinimumDKP:SetScript("OnClick", function(self)
+			if self:GetChecked() then
+				core.DB.DKPBonus.SetMinimumDKP = true;
+				PlaySound(808)
+			else
+				core.DB.DKPBonus.SetMinimumDKP = false;
+			end
+		end)
 
 		-- Include Standby Checkbox
 		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude = CreateFrame("CheckButton", nil, CommDKP.ConfigTab2.RaidTimerContainer, "UICheckButtonTemplate");
@@ -985,7 +1002,7 @@ function CommDKP:AdjustDKPTab_Create()
 		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude.text:SetText("  |cff5151de"..L["INCLUDESTANDBY"].."|r");
 		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude.text:SetScale(1.5);
 		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude.text:SetFontObject("CommDKPSmallLeft")
-		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude:SetPoint("TOP", CommDKP.ConfigTab2.RaidTimerContainer.EndRaidBonus, "BOTTOM", 0, 2);
+		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude:SetPoint("TOP", CommDKP.ConfigTab2.RaidTimerContainer.SetMinimumDKP, "BOTTOM", 0, 2);
 		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude:SetScript("OnClick", function(self)
 			if self:GetChecked() then
 				core.DB.DKPBonus.IncStandby = true;

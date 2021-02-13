@@ -32,12 +32,25 @@ local function SecondsToClock(seconds)
   end
 end
 
+local function GetMinDKPAmount(dkp, amount)
+  local MinDKP = core.DB.DKPBonus.MinDKP
+  if MinDKP > dkp then
+    amount = MinDKP - dkp + amount
+  end
+  return amount
+end
+
 function CommDKP:AwardPlayer(name, amount)
 	local search = CommDKP:Table_Search(CommDKP:GetTable(CommDKP_DKPTable, true), name, "player")
 	local path;
 
 	if search then
 		path = CommDKP:GetTable(CommDKP_DKPTable, true)[search[1][1]]
+    
+    if core.DB.DKPBonus.SetMinimumDKP then
+      amount = GetMinDKPAmount(path.dkp, amount)
+    end
+
 		path.dkp = path.dkp + amount
 		path.lifetime_gained = path.lifetime_gained + amount;
 	end

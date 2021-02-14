@@ -86,6 +86,7 @@ core.L = {
   AUTOAWARDTTDESC = "Automatically awards Boss Kill Bonus DKP (set in Options tab) when a boss is killed. Only the raid leader will distribute points with this. Raid must be initialized on the Adjust DKP tab.",
   AWARDBONUS = "Award Bonus",
   AWARDBONUSTTDESC = "Amount of DKP to give to the raid each time the below interval is met.",
+  AWARDDKPTOWINNERS = "Award bonus to winners",
   AWARDINTERVAL = "Award Interval",
   AWARDINTERVALTTDESC = "Time interval (in minutes) you want DKP to be awarded to the entire raid.",
   AWARDINTERVALTTWARN = "eg. Entering 60 will award the raid (and standby, if checked below) the DKP amount in the \"Bonus\" field above every hour. \"0\" disables interval bonus.",

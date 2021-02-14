@@ -687,7 +687,7 @@ function CommDKP:AdjustDKPTab_Create()
 	    CommDKP.ConfigTab2.RaidTimerContainer.Bonus:SetPoint("LEFT", CommDKP.ConfigTab2.RaidTimerContainer.BonusHeader, "RIGHT", 5, 0);
 
 	    -- Start Raid Timer Button
-	    CommDKP.ConfigTab2.RaidTimerContainer.StartTimer = self:CreateButton("TOPLEFT", CommDKP.ConfigTab2.RaidTimerContainer, "TOPLEFT", 0, -190, L["INITRAID"]);
+	    CommDKP.ConfigTab2.RaidTimerContainer.StartTimer = self:CreateButton("TOPLEFT", CommDKP.ConfigTab2.RaidTimerContainer, "TOPLEFT", 0, -200, L["INITRAID"]);
 		CommDKP.ConfigTab2.RaidTimerContainer.StartTimer:SetSize(90,25)
 		CommDKP.ConfigTab2.RaidTimerContainer.StartTimer:SetScript("OnClick", function(self)
 			if not IsInRaid() then
@@ -774,7 +774,7 @@ function CommDKP:AdjustDKPTab_Create()
 		end)
 
 		-- Pause Raid Timer Button
-	    CommDKP.ConfigTab2.RaidTimerContainer.PauseTimer = self:CreateButton("TOPRIGHT", CommDKP.ConfigTab2.RaidTimerContainer, "TOPRIGHT", 0, -190, L["PAUSERAID"]);
+	    CommDKP.ConfigTab2.RaidTimerContainer.PauseTimer = self:CreateButton("TOPRIGHT", CommDKP.ConfigTab2.RaidTimerContainer, "TOPRIGHT", 0, -200, L["PAUSERAID"]);
 		CommDKP.ConfigTab2.RaidTimerContainer.PauseTimer:SetSize(90,25)
 		CommDKP.ConfigTab2.RaidTimerContainer.PauseTimer:Hide();
 		CommDKP.ConfigTab2.RaidTimerContainer.PauseTimer:SetScript("OnClick", function(self)
@@ -994,6 +994,23 @@ function CommDKP:AdjustDKPTab_Create()
 				core.DB.DKPBonus.SetMinimumDKP = false;
 			end
 		end)
+    
+    -- Reward Winners
+		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners = CreateFrame("CheckButton", nil, CommDKP.ConfigTab2.RaidTimerContainer, "UICheckButtonTemplate");
+		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners:SetChecked(core.DB.DKPBonus.RewardWinners)
+		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners:SetScale(0.6);
+		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners.text:SetText("  |cff5151de"..L["AWARDDKPTOWINNERS"].."|r");
+		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners.text:SetScale(1.5);
+		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners.text:SetFontObject("CommDKPSmallLeft")
+		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners:SetPoint("TOP", CommDKP.ConfigTab2.RaidTimerContainer.SetMinimumDKP, "BOTTOM", 0, 2);
+		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners:SetScript("OnClick", function(self)
+			if self:GetChecked() then
+				core.DB.DKPBonus.RewardWinners = true;
+				PlaySound(808)
+			else
+				core.DB.DKPBonus.RewardWinners = false;
+			end
+		end)
 
 		-- Include Standby Checkbox
 		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude = CreateFrame("CheckButton", nil, CommDKP.ConfigTab2.RaidTimerContainer, "UICheckButtonTemplate");
@@ -1002,7 +1019,7 @@ function CommDKP:AdjustDKPTab_Create()
 		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude.text:SetText("  |cff5151de"..L["INCLUDESTANDBY"].."|r");
 		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude.text:SetScale(1.5);
 		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude.text:SetFontObject("CommDKPSmallLeft")
-		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude:SetPoint("TOP", CommDKP.ConfigTab2.RaidTimerContainer.SetMinimumDKP, "BOTTOM", 0, 2);
+		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude:SetPoint("TOP", CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners, "BOTTOM", 0, 2);
 		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude:SetScript("OnClick", function(self)
 			if self:GetChecked() then
 				core.DB.DKPBonus.IncStandby = true;
@@ -1025,7 +1042,7 @@ function CommDKP:AdjustDKPTab_Create()
 		CommDKP.ConfigTab2.RaidTimerContainer.TimerWarning = CommDKP.ConfigTab2.RaidTimerContainer:CreateFontString(nil, "OVERLAY")
 	    CommDKP.ConfigTab2.RaidTimerContainer.TimerWarning:SetFontObject("CommDKPTinyLeft");
 	    CommDKP.ConfigTab2.RaidTimerContainer.TimerWarning:SetWidth(180)
-	    CommDKP.ConfigTab2.RaidTimerContainer.TimerWarning:SetPoint("BOTTOMLEFT", CommDKP.ConfigTab2.RaidTimerContainer, "BOTTOMLEFT", 10, 10);
+	    CommDKP.ConfigTab2.RaidTimerContainer.TimerWarning:SetPoint("BOTTOMLEFT", CommDKP.ConfigTab2.RaidTimerContainer, "BOTTOMLEFT", 10, 0);
 	    CommDKP.ConfigTab2.RaidTimerContainer.TimerWarning:SetText("|CFFFF0000"..L["TIMERWARNING"].."|r")
 	    RaidTimerPopout_Create()
 end

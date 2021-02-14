@@ -106,6 +106,7 @@ if GetLocale() == "deDE" then
     DECREASEDISENCHANTTTDESC = "Verringere den Entzaubern-Wert nach drei Entzauberungen um die Hälfte bei jeder weiteren Entzauberung bis zu einem Mindestwert von 5 DKP",
     AWARDBONUS = "Bonusprämie",
     AWARDBONUSTTDESC = "Menge an DKP, die dem Schlachtzug jedes Mal gegeben werden soll, wenn das unten angegebene Intervall eingehalten wird.",
+    AWARDDKPTOWINNERS = "Gewinner bekommen DKP",
     AWARDEDBY = "Verliehen:",
     AWARDINTERVAL = "Auszeichnungsintervall",
     AWARDINTERVALTTDESC = "Zeitintervall (in Minuten), in dem DKP für den gesamten Angriff vergeben werden soll.",

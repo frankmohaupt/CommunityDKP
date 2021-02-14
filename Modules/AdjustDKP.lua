@@ -996,19 +996,19 @@ function CommDKP:AdjustDKPTab_Create()
 		end)
     
     -- Reward Winners
-		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners = CreateFrame("CheckButton", nil, CommDKP.ConfigTab2.RaidTimerContainer, "UICheckButtonTemplate");
-		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners:SetChecked(core.DB.DKPBonus.RewardWinners)
-		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners:SetScale(0.6);
-		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners.text:SetText("  |cff5151de"..L["AWARDDKPTOWINNERS"].."|r");
-		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners.text:SetScale(1.5);
-		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners.text:SetFontObject("CommDKPSmallLeft")
-		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners:SetPoint("TOP", CommDKP.ConfigTab2.RaidTimerContainer.SetMinimumDKP, "BOTTOM", 0, 2);
-		CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners:SetScript("OnClick", function(self)
+		CommDKP.ConfigTab2.RaidTimerContainer.AwardDKPToWinners = CreateFrame("CheckButton", nil, CommDKP.ConfigTab2.RaidTimerContainer, "UICheckButtonTemplate");
+		CommDKP.ConfigTab2.RaidTimerContainer.AwardDKPToWinners:SetChecked(core.DB.DKPBonus.AwardDKPToWinners)
+		CommDKP.ConfigTab2.RaidTimerContainer.AwardDKPToWinners:SetScale(0.6);
+		CommDKP.ConfigTab2.RaidTimerContainer.AwardDKPToWinners.text:SetText("  |cff5151de"..L["AWARDDKPTOWINNERS"].."|r");
+		CommDKP.ConfigTab2.RaidTimerContainer.AwardDKPToWinners.text:SetScale(1.5);
+		CommDKP.ConfigTab2.RaidTimerContainer.AwardDKPToWinners.text:SetFontObject("CommDKPSmallLeft")
+		CommDKP.ConfigTab2.RaidTimerContainer.AwardDKPToWinners:SetPoint("TOP", CommDKP.ConfigTab2.RaidTimerContainer.SetMinimumDKP, "BOTTOM", 0, 2);
+		CommDKP.ConfigTab2.RaidTimerContainer.AwardDKPToWinners:SetScript("OnClick", function(self)
 			if self:GetChecked() then
-				core.DB.DKPBonus.RewardWinners = true;
+				core.DB.DKPBonus.AwardDKPToWinners = true;
 				PlaySound(808)
 			else
-				core.DB.DKPBonus.RewardWinners = false;
+				core.DB.DKPBonus.AwardDKPToWinners = false;
 			end
 		end)
 
@@ -1019,7 +1019,7 @@ function CommDKP:AdjustDKPTab_Create()
 		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude.text:SetText("  |cff5151de"..L["INCLUDESTANDBY"].."|r");
 		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude.text:SetScale(1.5);
 		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude.text:SetFontObject("CommDKPSmallLeft")
-		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude:SetPoint("TOP", CommDKP.ConfigTab2.RaidTimerContainer.RewardWinners, "BOTTOM", 0, 2);
+		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude:SetPoint("TOP", CommDKP.ConfigTab2.RaidTimerContainer.AwardDKPToWinners, "BOTTOM", 0, 2);
 		CommDKP.ConfigTab2.RaidTimerContainer.StandbyInclude:SetScript("OnClick", function(self)
 			if self:GetChecked() then
 				core.DB.DKPBonus.IncStandby = true;

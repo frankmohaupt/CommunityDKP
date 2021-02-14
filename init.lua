@@ -885,12 +885,48 @@ function CommDKP:InitializeCommDKPDB(dbTable)
 		dbTable = {}
 	end
 	
-	if not dbTable.DKPBonus or not dbTable.DKPBonus.OnTimeBonus then
-		dbTable.DKPBonus = {
-			OnTimeBonus = 15, BossKillBonus = 5, CompletionBonus = 10, NewBossKillBonus = 10, UnexcusedAbsence = -25, MinDKP = 100, BidTimer = 30, DecayPercentage = 20, GiveRaidStart = false, IncStandby = false,
-		}
-	end
+  if not dbTable.DKPBonus.OnTimeBonus then
+    dbTable.DKPBonus.OnTimeBonus = 15
+  end
+  
+  if not dbTable.DKPBonus.BossKillBonus then
+    dbTable.DKPBonus.BossKillBonus = 5
+  end
+  
+  if not dbTable.DKPBonus.CompletionBonus then
+    dbTable.DKPBonus.CompletionBonus = 10
+  end
 
+  
+  if not dbTable.DKPBonus.NewBossKillBonus then
+    dbTable.DKPBonus.NewBossKillBonus = 10
+  end
+  
+  
+  if not dbTable.DKPBonus.UnexcusedAbsence then
+    dbTable.DKPBonus.UnexcusedAbsence = -25
+  end
+  
+  if not dbTable.DKPBonus.MinDKP then
+    dbTable.DKPBonus.MinDKP = 100
+  end
+  
+  if not dbTable.DKPBonus.BidTimer then
+    dbTable.DKPBonus.BidTimer = 30
+  end
+  
+  if not dbTable.DKPBonus.DecayPercentage then
+    dbTable.DKPBonus.DecayPercentage = 20
+  end
+  
+  if not dbTable.DKPBonus.GiveRaidStart then
+    dbTable.DKPBonus.GiveRaidStart = false
+  end
+  
+  if not dbTable.DKPBonus.IncStandby then
+    dbTable.DKPBonus.IncStandby = false
+  end
+  
 	if not dbTable.defaults or not dbTable.defaults.HistoryLimit then
 		dbTable.defaults = {
 			HistoryLimit = 2500, DKPHistoryLimit = 2500, BidTimerSize = 1.0, CommDKPScaleSize = 1.0, SuppressNotifications = false, TooltipHistoryCount = 15, SuppressTells = true,

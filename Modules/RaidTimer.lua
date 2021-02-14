@@ -11,6 +11,7 @@ local SecondCount = 0;
 local StartAwarded = false;
 local StartBonus = 0;
 local totalAwarded = 0;
+local StartTime = 0;
 
 local function SecondsToClock(seconds)
   local seconds = tonumber(seconds)
@@ -40,11 +41,31 @@ local function GetMinDKPAmount(dkp, amount)
   return amount
 end
 
+local function hasPlayerWonAnItem(playername)
+  local loot = CommDKP:GetTable(CommDKP_Loot, true)
+  local item = {}
+  
+  for i=1, #loot do
+    item = loot[i]
+    if item.player == playername and math.abs(item.cost) > 0 and item.date > StartTime then
+      return true
+    end
+  end
+  
+  return false
+end
+
 function CommDKP:AwardPlayer(name, amount)
 	local search = CommDKP:Table_Search(CommDKP:GetTable(CommDKP_DKPTable, true), name, "player")
 	local path;
+  local NotAwardDKPToWinners = not core.DB.DKPBonus.AwardDKPToWinners
 
 	if search then
+
+    if NotAwardDKPToWinners and hasPlayerWonAnItem(name) then
+      amount = 0
+    end
+        
 		path = CommDKP:GetTable(CommDKP_DKPTable, true)[search[1][1]]
     
     if core.DB.DKPBonus.SetMinimumDKP then
@@ -177,6 +198,7 @@ function CommDKP:StartRaidTimer(pause, syncTimer, syncSecondCount, syncMinuteCou
 			increment = core.DB.modes.increment;
 			core.RaidInProgress = true
 			core.RaidInPause = false
+      StartTime = time()
 		else -- pause == true
 			CommDKP.RaidTimer:SetScript("OnUpdate", nil)
 			CommDKP.ConfigTab2.RaidTimerContainer.StartTimer:SetText(L["CONTINUERAID"])

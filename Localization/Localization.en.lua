@@ -374,6 +374,7 @@ core.L = {
   MINBIDVALUESHEAD = "Minimum Bid Values",
   MINBIDVALUESSENT = "Minimum Bid Values Sent",
   MINDKP = "Minimum DKP",
+  MINDKPDESC = "Minimum DKP is credited to all new players when they join the DKP system. It also defines the lower limit of DKP that a player can have when starting a raid.",
   MINIMUMBID = "Minimum Bid",
   MINIMUMROLL = "Minimum Roll",
   MINIMUMROLLTTDESC = "Set the minimum roll to be used.",

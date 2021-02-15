@@ -445,6 +445,7 @@ if GetLocale() == "deDE" then
     MINBIDVALUESHEAD = "Mindestgebotswerte",
     MINBIDVALUESSENT = "Mindestgebot gesendet",
     MINDKP = "Mindest-DKP",
+    MINDKPDESC = "Mindest-DKP wird allen neuen Spielern beim Eintritt in das DKP System gutgeschrieben. Es legt außerdem die Untergrenze an DKP fest, die ein Spieler bei Raidantritt haben kann.",
     MINIMUMBID = "Mindestgebot",
     MINIMUMROLL = "Minimum Roll",
     MINIMUMROLLTTDESC = "Stellen Sie den zu verwendenden Mindestwurfwert ein.",

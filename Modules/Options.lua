@@ -213,8 +213,8 @@ function CommDKP:Options()
     CommDKP.ConfigTab4.default[6].tooltipWarning = L["DECAYPERCENTAGETTWARN"]
     
     CommDKP.ConfigTab4.default[7]:SetText(core.DB.DKPBonus.MinDKP)
-    CommDKP.ConfigTab4.default[7].tooltipText = L["ONTIMEBONUS"]
-    CommDKP.ConfigTab4.default[7].tooltipDescription = L["ONTIMEBONUSTTDESC"]
+    CommDKP.ConfigTab4.default[7].tooltipText = L["MINDKP"]
+    CommDKP.ConfigTab4.default[7].tooltipDescription = L["MINDKPDESC"]
 
 
     --OnTimeBonus Header

@@ -35,6 +35,8 @@ local function SaveSettings()
     end
     CommDKP.ConfigTab2.decayDKP:SetNumber(core.DB.DKPBonus.DecayPercentage);
     CommDKP.ConfigTab4.default[6]:SetNumber(core.DB.DKPBonus.DecayPercentage)
+    core.DB.DKPBonus.MinDKP = CommDKP.ConfigTab4.default[7]:GetNumber();
+    
     core.DB.DKPBonus.BidTimer = CommDKP.ConfigTab4.bidTimer:GetNumber();
 
     core.DB.MinBidBySlot.Head = CommDKP.ConfigTab4.DefaultMinBids.SlotBox[1]:GetNumber()
@@ -99,7 +101,7 @@ function CommDKP:Options()
     CommDKP.ConfigTab4.description:SetPoint("TOPLEFT", CommDKP.ConfigTab4.header, "BOTTOMLEFT", 7, -15);
     CommDKP.ConfigTab4.description:SetText("|CFFcca600"..L["DEFAULTDKPAWARDVALUES"].."|r");
   
-    for i=1, 6 do
+    for i=1, 7 do
       CommDKP.ConfigTab4.default[i] = CreateFrame("EditBox", nil, CommDKP.ConfigTab4)
       CommDKP.ConfigTab4.default[i]:SetAutoFocus(false)
       CommDKP.ConfigTab4.default[i]:SetMultiLine(false)
@@ -209,6 +211,11 @@ function CommDKP:Options()
     CommDKP.ConfigTab4.default[6].tooltipText = L["DECAYPERCENTAGE"]
     CommDKP.ConfigTab4.default[6].tooltipDescription = L["DECAYPERCENTAGETTDESC"]
     CommDKP.ConfigTab4.default[6].tooltipWarning = L["DECAYPERCENTAGETTWARN"]
+    
+    CommDKP.ConfigTab4.default[7]:SetText(core.DB.DKPBonus.MinDKP)
+    CommDKP.ConfigTab4.default[7].tooltipText = L["MINDKP"]
+    CommDKP.ConfigTab4.default[7].tooltipDescription = L["MINDKPDESC"]
+
 
     --OnTimeBonus Header
     CommDKP.ConfigTab4.OnTimeHeader = CommDKP.ConfigTab4:CreateFontString(nil, "OVERLAY")
@@ -250,10 +257,17 @@ function CommDKP:Options()
     CommDKP.ConfigTab4.DecayFooter:SetFontObject("CommDKPSmallRight");
     CommDKP.ConfigTab4.DecayFooter:SetPoint("LEFT", CommDKP.ConfigTab4.default[6], "RIGHT", -15, -1);
     CommDKP.ConfigTab4.DecayFooter:SetText("%")
+    
+    --Minimum DKP Header
+    CommDKP.ConfigTab4.MinDKPHeader = CommDKP.ConfigTab4:CreateFontString(nil, "OVERLAY")
+    CommDKP.ConfigTab4.MinDKPHeader:SetFontObject("CommDKPSmallRight");
+    CommDKP.ConfigTab4.MinDKPHeader:SetPoint("RIGHT", CommDKP.ConfigTab4.default[7], "LEFT", 0, 0);
+    CommDKP.ConfigTab4.MinDKPHeader:SetText(L["MINDKP"]..": ")
+
 
     -- Default Minimum Bids Container Frame
     CommDKP.ConfigTab4.DefaultMinBids = CreateFrame("Frame", nil, CommDKP.ConfigTab4);
-    CommDKP.ConfigTab4.DefaultMinBids:SetPoint("TOPLEFT", CommDKP.ConfigTab4.default[3], "BOTTOMLEFT", -130, -52)
+    CommDKP.ConfigTab4.DefaultMinBids:SetPoint("TOPLEFT", CommDKP.ConfigTab4.default[3], "BOTTOMLEFT", -130, -82)
     CommDKP.ConfigTab4.DefaultMinBids:SetSize(420, 410);
 
     CommDKP.ConfigTab4.DefaultMinBids.description = CommDKP.ConfigTab4.DefaultMinBids:CreateFontString(nil, "OVERLAY")

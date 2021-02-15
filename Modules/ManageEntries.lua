@@ -119,6 +119,7 @@ local function AddRaidToDKPTable()
 						profile.player=tempName;
 						profile.class=tempClass;
 					end
+          profile.dkp = CommDKP:GetMinimumDKP()
 					tinsert(CommDKP:GetTable(CommDKP_DKPTable, true), profile);
 					tinsert(entities, profile);
 					CommDKP:GetTable(CommDKP_Profiles, true)[name] = profile;
@@ -180,6 +181,7 @@ local function AddGuildToDKPTable(rank, level)
 			profile.class=class;
 			profile.rank = rankIndex;
 			profile.rankName = rank;
+      profile.dkp = CommDKP:GetMinimumDKP()
 
 			tinsert(CommDKP:GetTable(CommDKP_DKPTable, true), profile);
 			tinsert(entities, profile);
@@ -233,7 +235,8 @@ local function AddTargetToDKPTable()
 	profile.class=class;
 
 	if not search then
-		tinsert(CommDKP:GetTable(CommDKP_DKPTable, true), profile);
+	  profile.dkp = CommDKP:GetMinimumDKP()
+    tinsert(CommDKP:GetTable(CommDKP_DKPTable, true), profile);
 		tinsert(entities, profile);
 		CommDKP:GetTable(CommDKP_Profiles, true)[name] = profile;
 

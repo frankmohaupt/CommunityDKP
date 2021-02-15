@@ -312,6 +312,10 @@ function CommDKP:GetThemeColor()
 	return c;
 end
 
+function CommDKP:GetMinimumDKP()
+  return core.DB.DKPBonus.MinDKP
+end
+
 function CommDKP:GetPlayerDKP(player)
 	local search = CommDKP:Table_Search(CommDKP:GetTable(CommDKP_DKPTable, true), player)
 
